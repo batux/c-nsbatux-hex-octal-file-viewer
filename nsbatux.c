@@ -136,7 +136,7 @@ void print_in_hex_or_octal_format(FILE *file, char *A_arg, char *t_arg, int *n_a
     const char *offset_text_format = (*A_arg) == 'x' ? "%07X    " : "%07o    ";
     const char *data_text_format = (*t_arg) == 'x' ? "%02X%c" : "%03o%c";
 
-    char *printable_char_arr;
+    char *printable_char_arr = NULL;
     if(*p_flag)
     {
         if ((printable_char_arr = (char *)malloc(HEX_OCTAL_LINE_LENGTH * sizeof(char))) == NULL) 
