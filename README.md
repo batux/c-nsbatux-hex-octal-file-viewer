@@ -5,7 +5,7 @@ nsbatux utility tool shows file content hexadecimal or octal. It has some basic 
 
 POSIX 'hexdump' program's output
 
-‘‘‘console
+```console
 $ hexdump -C -n 100 nsbatux.c
 00000000  23 69 6e 63 6c 75 64 65  20 3c 73 74 64 69 6f 2e  |#include <stdio.|
 00000010  68 3e 0a 23 69 6e 63 6c  75 64 65 20 3c 73 74 64  |h>.#include <std|
@@ -15,10 +15,11 @@ $ hexdump -C -n 100 nsbatux.c
 00000050  64 65 66 69 6e 65 20 56  45 52 53 49 4f 4e 5f 44  |define VERSION_D|
 00000060  45 53 43 20                                       |ESC |
 00000064
-‘‘‘
+```
 
 POSIX 'od' program's output
 
+```console
 $ od -A x -t x1 -N 100 nsbatux.c
 0000000    23  69  6e  63  6c  75  64  65  20  3c  73  74  64  69  6f  2e
 0000010    68  3e  0a  23  69  6e  63  6c  75  64  65  20  3c  73  74  64
@@ -28,11 +29,11 @@ $ od -A x -t x1 -N 100 nsbatux.c
 0000050    64  65  66  69  6e  65  20  56  45  52  53  49  4f  4e  5f  44
 0000060    45  53  43  20                                                
 0000064
-
+```
 
 Our 'nsbatux' file content viewer which shows hexadecimal format output
 
-‘‘‘console
+```console
 $ ./nsbatux -A x -t x -n 100 -p nsbatux.c
 ====> nsbatux.c <====
 0000000    23 69 6E 63 6C 75 64 65 20 3C 73 74 64 69 6F 2E   |#include <stdio.|
@@ -42,12 +43,12 @@ $ ./nsbatux -A x -t x -n 100 -p nsbatux.c
 0000040    64 65 20 3C 67 65 74 6F 70 74 2E 68 3E 0A 0A 23   |de <getopt.h>..#|
 0000050    64 65 66 69 6E 65 20 56 45 52 53 49 4F 4E 5F 44   |define VERSION_D|
 0000060    45 53 43 20 
-‘‘‘
+```
 
 
 Our 'nsbatux' file content viewer without -p option which shows hexadecimal format output
 
-‘‘‘console
+```console
 $ ./nsbatux -A x -t x -n 100 nsbatux.c
 ====> nsbatux.c <====
 0000000    23 69 6E 63 6C 75 64 65 20 3C 73 74 64 69 6F 2E
@@ -57,12 +58,12 @@ $ ./nsbatux -A x -t x -n 100 nsbatux.c
 0000040    64 65 20 3C 67 65 74 6F 70 74 2E 68 3E 0A 0A 23
 0000050    64 65 66 69 6E 65 20 56 45 52 53 49 4F 4E 5F 44
 0000060    45 53 43 20 
-‘‘‘
+```
 
 
 Our 'nsbatux' file content viewer which shows octal format output
 
-‘‘‘console
+```console
 $ ./nsbatux -A o -t o -n 100 -p nsbatux.c
 ====> nsbatux.c <====
 0000000    043 151 156 143 154 165 144 145 040 074 163 164 144 151 157 056   |#include <stdio.|
@@ -72,11 +73,11 @@ $ ./nsbatux -A o -t o -n 100 -p nsbatux.c
 0000100    144 145 040 074 147 145 164 157 160 164 056 150 076 012 012 043   |de <getopt.h>..#|
 0000120    144 145 146 151 156 145 040 126 105 122 123 111 117 116 137 104   |define VERSION_D|
 0000140    105 123 103 040 
-‘‘‘
+```
 
 Our 'nsbatux' file content viewer without -p option which shows octal format output
 
-‘‘‘console
+```console
 $ ./nsbatux -A o -t o -n 100 nsbatux.c
 ====> nsbatux.c <====
 0000000    043 151 156 143 154 165 144 145 040 074 163 164 144 151 157 056
@@ -86,12 +87,12 @@ $ ./nsbatux -A o -t o -n 100 nsbatux.c
 0000100    144 145 040 074 147 145 164 157 160 164 056 150 076 012 012 043
 0000120    144 145 146 151 156 145 040 126 105 122 123 111 117 116 137 104
 0000140    105 123 103 040 
-‘‘‘
+```
 
 
 Show all file content (use utility tool without -n option)
 
-‘‘‘console
+```console
 $ ./nsbatux -A x -t x nsbatux.c
 ====> nsbatux.c <====
 0000000    23 69 6E 63 6C 75 64 65 20 3C 73 74 64 69 6F 2E
@@ -118,4 +119,4 @@ $ ./nsbatux -A x -t x nsbatux.c
 00023C0    0A 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20
 00023D0    20 62 72 65 61 6B 3B 0A 20 20 20 20 20 20 20 20
 00023E0    7D 0A 20 20 20 20 7D 0A 7D 
-‘‘‘
+```
