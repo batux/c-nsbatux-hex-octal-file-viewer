@@ -1,6 +1,6 @@
 # c-nsbatux-hex-octal-file-viewer
 
-nsbatux utility tool shows file content hexadecimal or octal. It has some basic abilities from hexdump and od POSIX utility tools.
+'nsbatux' utility tool shows file content in hexadecimal or octal formats. It has some basic abilities from hexdump and od POSIX utility tools.
 
 
 POSIX 'hexdump' program's output
