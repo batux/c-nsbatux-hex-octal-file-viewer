@@ -1,3 +1,8 @@
+/*
+    Batuhan Düzgün - 22.01.2021
+    nsbatux: file content viewer in hexadecimal or octal format.
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
