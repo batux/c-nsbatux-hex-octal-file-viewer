@@ -186,6 +186,11 @@ void print_in_hex_or_octal_format(FILE *file, char *A_arg, char *t_arg, int *n_a
     {
         printf("\n");
     }
+
+    if(printable_char_arr != NULL)
+    {
+        free(printable_char_arr);
+    }
 }
 
 int open_file(FILE **file, char *file_name)
