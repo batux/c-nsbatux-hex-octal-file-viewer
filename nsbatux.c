@@ -133,7 +133,7 @@ void print_in_hex_or_octal_format(FILE *file, char *A_arg, char *t_arg, int *n_a
     long offset_counter = 0;
     char new_line = '\n';
     char space_line = ' ';
-    char *printable_char_arr;
+    char *printable_char_arr = NULL;
     const char *offset_text_format = (*A_arg) == 'x' ? "%07X    " : "%07o    ";
     const char *data_text_format = (*t_arg) == 'x' ? "%02X%c" : "%03o%c";
     
