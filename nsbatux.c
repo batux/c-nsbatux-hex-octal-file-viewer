@@ -39,6 +39,8 @@ void read_from_stdin();
 
 void print_in_hex_or_octal_format(FILE *file, char *A_arg, char *t_arg, int *n_arg_val, int *p_flag);
 
+void print_characters(char *printable_char_arr, int limit);
+
 
 int main(int argc, char *argv[])
 {
@@ -152,19 +154,14 @@ void print_in_hex_or_octal_format(FILE *file, char *A_arg, char *t_arg, int *n_a
 
     fseek(file, 0, SEEK_SET);
 
-    while( (val = fgetc(file)) != EOF && ( *n_arg_val == -1 ? 1 : (*n_arg_val) >  byte_counter) )
+    while( (val = fgetc(file)) != EOF && ( *n_arg_val == -1 ? 1 : (*n_arg_val) > byte_counter) )
     {
         int line_step = byte_counter % HEX_OCTAL_LINE_LENGTH;
         if(line_step == 0)
         {
             if((*p_flag) && printable_byte_counter > 0)
-            {   
-                printf("  |");
-                for(int i = 0; i < HEX_OCTAL_LINE_LENGTH; i++)
-                {
-                    printf("%c", printable_char_arr[i]);
-                }
-                printf("|\n");
+            {
+                print_characters(printable_char_arr, HEX_OCTAL_LINE_LENGTH);
                 printable_byte_counter = 0;
             }
             printf(offset_text_format, offset_counter);
@@ -182,6 +179,16 @@ void print_in_hex_or_octal_format(FILE *file, char *A_arg, char *t_arg, int *n_a
         byte_counter++;
     }
 
+    if((*p_flag) && printable_byte_counter > 0)
+    {   
+        for(int i = 0; i < HEX_OCTAL_LINE_LENGTH - printable_byte_counter; i++)
+        {
+            printf("   ");
+        }
+        print_characters(printable_char_arr, printable_byte_counter);
+        printable_byte_counter = 0;
+    }
+
     if(byte_counter)
     {
         printf("\n");
@@ -194,6 +201,16 @@ void print_in_hex_or_octal_format(FILE *file, char *A_arg, char *t_arg, int *n_a
             free(printable_char_arr);
         }
     }
+}
+
+void print_characters(char *printable_char_arr, int limit)
+{
+    printf("  |");
+    for(int i = 0; i < limit; i++)
+    {
+        printf("%c", printable_char_arr[i]);
+    }
+    printf("|\n");
 }
 
 int open_file(FILE **file, char *file_name)
